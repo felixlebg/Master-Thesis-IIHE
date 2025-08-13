@@ -1,0 +1,32 @@
+# con_sub process_data.sub à mettre dans la console
++SingularityImage = false
+universe = vanilla
+executable   = /storage/gpfs_data/juno/junofs/users/frosso/run_py.sh
+
+# choose the run number
+arguments    = "$(lines)"
+
+# set the path for the output logs
+output = /storage/gpfs_data/juno/junofs/users/frosso/out/jobout_$(Cluster)$(Process)
+error  = /storage/gpfs_data/juno/junofs/users/frosso/out/error_$(Cluster)$(Process)
+log = /storage/gpfs_data/juno/junofs/users/frosso/out/logout
+
+RequestMemory = 10000
++MaxRuntime = 432000
+request_cpus   = 1
+
+should_transfer_files = yes 
+
+# set number of jobs
+queue 1
+
+#transfer_input_files = /storage/gpfs_data/juno/junofs/users/frosso/nolist.txt
+
+#transfer_input_files = /storage/gpfs_data/juno/junofs/users/frosso/run_list_test.txt
+#queue lines from /storage/gpfs_data/juno/junofs/users/frosso/run_list_test.txt
+
+#transfer_input_files = /storage/gpfs_data/juno/junofs/users/frosso/run_list_half.txt
+#queue lines from /storage/gpfs_data/juno/junofs/users/frosso/run_list_half.txt
+
+transfer_input_files = /storage/gpfs_data/juno/junofs/users/frosso/run_list_75prc.txt
+queue lines from /storage/gpfs_data/juno/junofs/users/frosso/run_list_75prc.txt
